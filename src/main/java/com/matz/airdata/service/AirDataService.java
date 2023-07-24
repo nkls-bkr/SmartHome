@@ -1,6 +1,6 @@
-package com.containertest.demo.airdata.service;
+package com.matz.airdata.service;
 
-import com.containertest.demo.airdata.AirData;
+import com.matz.airdata.AirData;
 
 import java.util.Optional;
 

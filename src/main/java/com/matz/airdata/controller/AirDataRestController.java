@@ -1,30 +1,33 @@
-package com.containertest.demo.airdata.controller;
+package com.matz.airdata.controller;
 
-import com.containertest.demo.airdata.AirData;
-import com.containertest.demo.airdata.service.AirDataService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import com.matz.airdata.AirData;
+import com.matz.airdata.service.AirDataService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/airdata")
-
-@RequiredArgsConstructor
-@Slf4j
+@RequestMapping("/v1/airdata")
 public class AirDataRestController {
     private final AirDataService airDataService;
 
+    private final AirDataDtoMapper airDataDtoMapper;
+
+    public AirDataRestController(AirDataService airDataService
+            ,AirDataDtoMapper airDataDtoMapper) {
+        this.airDataService = Objects.requireNonNull(airDataService,
+                "The air data service must not be null");
+        this.airDataDtoMapper = Objects.requireNonNull(airDataDtoMapper,
+                "The air data dto mapper must not be null");
+    }
+
     @PostMapping
     @ResponseBody
-    public ResponseEntity<?> postAirData(@RequestBody AirData airData) {
-        AirData airDataToSave = airData.withLocalDateTime(LocalDateTime.now());
-
-        log.info(String.format("Air data received: %s", airDataToSave));
+    public ResponseEntity<?> postAirData(@RequestBody AirDataDto airDataDto) {
+        AirData airDataToSave = airDataDtoMapper.AirDataDtoToAirData(airDataDto);
 
         AirData savedAirData = airDataService.save(airDataToSave);
 
@@ -44,8 +47,6 @@ public class AirDataRestController {
                     .status(HttpStatus.BAD_REQUEST)
                     .build();
         }
-
-        log.info(String.format("Air data found: %s", airDataSearchingFor.get()));
 
         return ResponseEntity
                 .status(HttpStatus.OK)
