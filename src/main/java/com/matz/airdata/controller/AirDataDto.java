@@ -7,7 +7,7 @@ public class AirDataDto {
     private final double humidity;
     private final LocalDateTime localDateTime;
 
-    private AirDataDto(Builder builder) {
+    public AirDataDto(Builder builder) {
         this.temperature = builder.temperature;
         this.humidity = builder.humidity;
         this.localDateTime = builder.localDateTime;
@@ -34,7 +34,7 @@ public class AirDataDto {
         private double humidity;
         private LocalDateTime localDateTime;
 
-        private Builder() {
+        public Builder() {
         }
 
         public Builder withTemperature(double temperature) {

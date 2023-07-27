@@ -34,7 +34,7 @@ public class AirData {
         private double humidity;
         private LocalDateTime localDateTime;
 
-        private Builder() {
+        public Builder() {
         }
 
         public Builder withTemperature(double temperature) {
