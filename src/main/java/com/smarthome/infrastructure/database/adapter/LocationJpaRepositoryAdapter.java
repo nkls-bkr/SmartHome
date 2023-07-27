@@ -4,6 +4,7 @@ import com.smarthome.domain.model.location.Location;
 import com.smarthome.infrastructure.database.entities.location.LocationJpaEntity;
 import com.smarthome.infrastructure.database.mapper.location.LocationJpaEntityMapper;
 import com.smarthome.domain.ports.driven.LocationRepositoryPort;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +15,7 @@ import java.util.Optional;
  * interface that interacts with the LocationJpaRepository and LocationJpaEntityMapper. It provides
  * methods for finding all locations, saving a location, and finding a location by ID.
  */
+@Repository
 public class LocationJpaRepositoryAdapter implements LocationRepositoryPort {
   private final LocationJpaRepository locationJpaRepository;
 
