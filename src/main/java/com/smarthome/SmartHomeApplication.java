@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MatzApplication {
+public class SmartHomeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MatzApplication.class, args);
+		SpringApplication.run(SmartHomeApplication.class, args);
 	}
 
 }
