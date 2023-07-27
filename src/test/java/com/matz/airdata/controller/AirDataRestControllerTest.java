@@ -1,7 +1,10 @@
 package com.matz.airdata.controller;
 
-import com.matz.airdata.AirData;
-import com.matz.airdata.service.AirDataService;
+import com.matz.domain.model.AirData;
+import com.matz.domain.ports.driving.AirDataService;
+import com.matz.application.rest.controller.AirDataRestController;
+import com.matz.application.rest.dto.AirDataDto;
+import com.matz.application.rest.mapper.AirDataDtoMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
