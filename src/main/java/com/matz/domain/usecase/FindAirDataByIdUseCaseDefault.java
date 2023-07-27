@@ -1,6 +1,6 @@
 package com.matz.domain.usecase;
 
-import com.matz.domain.model.AirData;
+import com.matz.domain.model.airdata.AirData;
 import com.matz.domain.ports.driven.AirDataRepositoryPort;
 import com.matz.domain.ports.driving.FindAirDataByIdUseCase;
 import org.springframework.stereotype.Service;

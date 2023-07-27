@@ -1,6 +1,6 @@
 package com.matz.domain.ports.driven;
 
-import com.matz.domain.model.AirData;
+import com.matz.domain.model.airdata.AirData;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,6 @@
 package com.matz.domain.ports.driven;
 
-import com.matz.domain.model.Location;
+import com.matz.domain.model.location.Location;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,8 +1,8 @@
 package com.matz.infrastructure.database.adapter;
 
-import com.matz.infrastructure.database.mapper.AirDataEntityMapper;
+import com.matz.infrastructure.database.mapper.airdata.AirDataEntityMapper;
 import com.matz.infrastructure.database.entities.AirDataJpaEntity;
-import com.matz.domain.model.AirData;
+import com.matz.domain.model.airdata.AirData;
 import com.matz.domain.ports.driven.AirDataRepositoryPort;
 import org.springframework.stereotype.Repository;
 
@@ -35,16 +35,16 @@ public class AirDataJpaRepositoryAdapter implements AirDataRepositoryPort {
         List<AirDataJpaEntity> airDataEntities = airDataJpaRepository.findAll();
 
         return airDataEntities.stream()
-                .map(airDataEntityMapper::AirDataEntityToAirData)
+                .map(airDataEntityMapper::toModel)
                 .toList();
     }
 
     @Override
     public AirData save(AirData airData)
     {
-        AirDataJpaEntity airDataJpaEntityToSave = airDataEntityMapper.AirDataToAirDataEntity(airData);
+        AirDataJpaEntity airDataJpaEntityToSave = airDataEntityMapper.toJpaEntity(airData);
 
-        return airDataEntityMapper.AirDataEntityToAirData(airDataJpaRepository.save(airDataJpaEntityToSave));
+        return airDataEntityMapper.toModel(airDataJpaRepository.save(airDataJpaEntityToSave));
     }
 
     @Override
@@ -52,6 +52,6 @@ public class AirDataJpaRepositoryAdapter implements AirDataRepositoryPort {
     {
         Optional<AirDataJpaEntity> airDataEntityToSearchFor = airDataJpaRepository.findById(id);
 
-        return airDataEntityToSearchFor.map(airDataEntityMapper::AirDataEntityToAirData);
+        return airDataEntityToSearchFor.map(airDataEntityMapper::toModel);
     }
 }
