@@ -1,10 +1,11 @@
 package com.smarthome.application.rest.controller;
 
-import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.application.rest.dto.airdata.AirDataDto;
 import com.smarthome.application.rest.mapper.airdata.AirDataDtoMapper;
+import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.domain.ports.driving.airdata.FindAirDataByIdUseCase;
 import com.smarthome.domain.ports.driving.airdata.SaveAirDataUseCase;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,12 +34,12 @@ public class AirDataRestController {
 
   @PostMapping
   @ResponseBody
-  public ResponseEntity<?> postAirData(@RequestBody AirDataDto airDataDto) {
+  public ResponseEntity<?> postAirData(@RequestBody @Valid AirDataDto airDataDto) {
     AirData airDataToSave = airDataDtoMapper.toModel(airDataDto);
 
     AirData savedAirData = saveAirDataUseCase.execute(airDataToSave);
 
-    return ResponseEntity.status(HttpStatus.OK).body(savedAirData);
+    return ResponseEntity.status(HttpStatus.OK).body(airDataDtoMapper.toDto(savedAirData));
   }
 
   @GetMapping("/{id}")
