@@ -1,12 +1,25 @@
 package com.smarthome.application.rest.dto.airdata;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class AirDataDto {
+  @PositiveOrZero
   private final long id;
+
+  @Max(value = 100, message = "The temperature may be between -273°C and 1000°C")
+  @Min(value = -273, message = "The temperature may be between -273°C and 1000°C")
   private final double temperature;
+
+  @Max(value = 100, message = "The humidity may be between 0% and 100%")
+  @Min(value = 0, message = "The humidity may be between 0% and 100%")
   private final double humidity;
+
   private final LocalDateTime localDateTime;
 
   public AirDataDto(long id, double temperature, double humidity, LocalDateTime localDateTime) {
