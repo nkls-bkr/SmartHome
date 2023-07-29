@@ -16,7 +16,6 @@ import java.util.Objects;
 public class AirDataRestController {
   private final FindAirDataByIdUseCase findAirDataByIdUseCase;
   private final SaveAirDataUseCase saveAirDataUseCase;
-
   private final AirDataDtoMapper airDataDtoMapper;
 
   public AirDataRestController(
