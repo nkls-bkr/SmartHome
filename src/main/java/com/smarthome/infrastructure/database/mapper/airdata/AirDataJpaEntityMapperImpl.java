@@ -11,6 +11,7 @@ public class AirDataJpaEntityMapperImpl implements AirDataJpaEntityMapper {
   @Override
   public AirData toModel(AirDataJpaEntity airDataJpaEntity) {
     return new AirDataBuilder()
+            .setId(airDataJpaEntity.getId())
         .setHumidity(airDataJpaEntity.getHumidity())
         .setTemperature(airDataJpaEntity.getTemperature())
         .setLocalDateTime(airDataJpaEntity.getTimestamp())
