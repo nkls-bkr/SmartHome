@@ -1,12 +1,15 @@
 package com.smarthome.application.rest.dto.airdata;
 
+import com.smarthome.application.rest.dto.location.LocationDto;
+
 import java.time.LocalDateTime;
 
-public class AirDataDtoBuilder{
+public class AirDataDtoBuilder {
     private long id;
     private double temperature;
     private double humidity;
     private LocalDateTime localDateTime;
+    private LocationDto locationDto;
 
     public AirDataDtoBuilder setId(long id) {
         this.id = id;
@@ -28,7 +31,12 @@ public class AirDataDtoBuilder{
         return this;
     }
 
+    public AirDataDtoBuilder setLocationDto(LocationDto locationDto) {
+        this.locationDto = locationDto;
+        return this;
+    }
+
     public AirDataDto createAirDataDto() {
-        return new AirDataDto(id, temperature, humidity, localDateTime);
+        return new AirDataDto(id, temperature, humidity, localDateTime, locationDto);
     }
 }

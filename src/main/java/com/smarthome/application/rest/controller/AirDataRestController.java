@@ -1,8 +1,8 @@
 package com.smarthome.application.rest.controller;
 
-import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.application.rest.dto.airdata.AirDataDto;
 import com.smarthome.application.rest.mapper.airdata.AirDataDtoMapper;
+import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.domain.ports.driving.airdata.FindAirDataByIdUseCase;
 import com.smarthome.domain.ports.driving.airdata.SaveAirDataUseCase;
 import jakarta.validation.Valid;
