@@ -40,7 +40,7 @@ public class ApplicationConfig {
 
     @Bean
     SaveAirDataUseCase saveAirDataUseCase() {
-        return new SaveAirDataUseCaseDefault(airDataRepositoryPort);
+        return new SaveAirDataUseCaseDefault(airDataRepositoryPort, locationRepositoryPort);
     }
 
     @Bean

@@ -1,12 +1,15 @@
 package com.smarthome.infrastructure.database.entities.airdata;
 
+import com.smarthome.infrastructure.database.entities.location.LocationJpaEntity;
+
 import java.time.LocalDateTime;
 
-public class AirDataJpaEntityBuilder{
+public class AirDataJpaEntityBuilder {
     private long id;
     private double temperature;
     private double humidity;
     private LocalDateTime localDateTime;
+    private LocationJpaEntity locationJpaEntity;
 
     public AirDataJpaEntityBuilder setId(long id) {
         this.id = id;
@@ -28,7 +31,12 @@ public class AirDataJpaEntityBuilder{
         return this;
     }
 
+    public AirDataJpaEntityBuilder setLocationJpaEntity(LocationJpaEntity locationJpaEntity) {
+        this.locationJpaEntity = locationJpaEntity;
+        return this;
+    }
+
     public AirDataJpaEntity createAirDataJpaEntity() {
-        return new AirDataJpaEntity(id, temperature, humidity, localDateTime);
+        return new AirDataJpaEntity(id, temperature, humidity, localDateTime, locationJpaEntity);
     }
 }

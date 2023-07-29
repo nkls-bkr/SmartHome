@@ -1,5 +1,7 @@
 package com.smarthome.domain.model.airdata;
 
+import com.smarthome.domain.model.location.Location;
+
 import java.time.LocalDateTime;
 
 public class AirData {
@@ -7,12 +9,14 @@ public class AirData {
   private final double temperature;
   private final double humidity;
   private final LocalDateTime localDateTime;
+    private final Location location;
 
-  public AirData(long id, double temperature, double humidity, LocalDateTime localDateTime) {
+    public AirData(long id, double temperature, double humidity, LocalDateTime localDateTime, Location location) {
     this.id = id;
     this.temperature = temperature;
     this.humidity = humidity;
     this.localDateTime = localDateTime;
+        this.location = location;
   }
 
   public long getId() {
@@ -30,4 +34,8 @@ public class AirData {
   public LocalDateTime getLocalDateTime() {
     return localDateTime;
   }
+
+    public Location getLocation() {
+        return location;
+    }
 }

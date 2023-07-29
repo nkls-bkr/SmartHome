@@ -1,5 +1,6 @@
 package com.smarthome.infrastructure.database.entities.airdata;
 
+import com.smarthome.infrastructure.database.entities.location.LocationJpaEntity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -16,17 +17,21 @@ public class AirDataJpaEntity {
     private double humidity;
     private LocalDateTime timestamp;
 
+    @ManyToOne
+    private LocationJpaEntity locationJpaEntity;
+
     public AirDataJpaEntity() {
     }
 
     public AirDataJpaEntity(long id,
                             double temperature,
                             double humidity,
-                            LocalDateTime localDateTime) {
+                            LocalDateTime localDateTime, LocationJpaEntity locationJpaEntity) {
         this.id = id;
         this.temperature = temperature;
         this.humidity = humidity;
         this.timestamp = localDateTime;
+        this.locationJpaEntity = locationJpaEntity;
     }
 
     public long getId() {
@@ -59,6 +64,14 @@ public class AirDataJpaEntity {
 
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public LocationJpaEntity getLocationJpaEntity() {
+        return locationJpaEntity;
+    }
+
+    public void setLocationJpaEntity(LocationJpaEntity locationJpaEntity) {
+        this.locationJpaEntity = locationJpaEntity;
     }
 
     @Override
