@@ -4,7 +4,7 @@ import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.application.rest.dto.AirDataDto;
 
 public interface AirDataDtoMapper {
-    AirData AirDataDtoToAirData(AirDataDto airDataDto);
+    AirData toModel(AirDataDto airDataDto);
 
-    AirDataDto AirDataToAirDataDto(AirData airData);
+    AirDataDto toDto(AirData airData);
 }

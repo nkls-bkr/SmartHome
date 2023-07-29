@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AirDataDtoMapperImpl implements AirDataDtoMapper {
   @Override
-  public AirData AirDataDtoToAirData(AirDataDto airDataDto) {
+  public AirData toModel(AirDataDto airDataDto) {
     return new AirDataBuilder()
         .setId(airDataDto.getId())
         .setTemperature(airDataDto.getTemperature())
@@ -19,7 +19,7 @@ public class AirDataDtoMapperImpl implements AirDataDtoMapper {
   }
 
   @Override
-  public AirDataDto AirDataToAirDataDto(AirData airData) {
+  public AirDataDto toDto(AirData airData) {
     return new AirDataDtoBuilder()
         .setId(airData.getId())
         .setTemperature(airData.getTemperature())
