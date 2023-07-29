@@ -4,7 +4,6 @@ import com.smarthome.domain.exception.ResourceDoesNotExistException;
 import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.domain.ports.driven.AirDataRepositoryPort;
 import com.smarthome.domain.ports.driving.FindAirDataByIdUseCase;
-import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Optional;
