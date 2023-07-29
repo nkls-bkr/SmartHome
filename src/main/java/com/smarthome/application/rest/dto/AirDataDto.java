@@ -1,22 +1,23 @@
 package com.smarthome.application.rest.dto;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class AirDataDto {
-  private double temperature;
-  private double humidity;
-  private LocalDateTime localDateTime;
+  private final long id;
+  private final double temperature;
+  private final double humidity;
+  private final LocalDateTime localDateTime;
 
-  public AirDataDto(Builder builder) {
-    this.temperature = builder.temperature;
-    this.humidity = builder.humidity;
-    this.localDateTime = builder.localDateTime;
+  public AirDataDto(long id, double temperature, double humidity, LocalDateTime localDateTime) {
+    this.id = id;
+    this.temperature = temperature;
+    this.humidity = humidity;
+    this.localDateTime = localDateTime;
   }
 
-  public AirDataDto() {}
-
-  public static Builder builder() {
-    return new Builder();
+  public long getId() {
+    return id;
   }
 
   public double getTemperature() {
@@ -31,30 +32,19 @@ public class AirDataDto {
     return localDateTime;
   }
 
-  public static final class Builder {
-    private double temperature;
-    private double humidity;
-    private LocalDateTime localDateTime;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    AirDataDto that = (AirDataDto) o;
+    return id == that.id
+        && Double.compare(temperature, that.temperature) == 0
+        && Double.compare(humidity, that.humidity) == 0
+        && Objects.equals(localDateTime, that.localDateTime);
+  }
 
-    public Builder() {}
-
-    public Builder withTemperature(double temperature) {
-      this.temperature = temperature;
-      return this;
-    }
-
-    public Builder withHumidity(double humidity) {
-      this.humidity = humidity;
-      return this;
-    }
-
-    public Builder atTime(LocalDateTime localDateTime) {
-      this.localDateTime = localDateTime;
-      return this;
-    }
-
-    public AirDataDto build() {
-      return new AirDataDto(this);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, temperature, humidity, localDateTime);
   }
 }
