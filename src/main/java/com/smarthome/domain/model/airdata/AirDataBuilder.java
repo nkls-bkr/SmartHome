@@ -3,9 +3,15 @@ package com.smarthome.domain.model.airdata;
 import java.time.LocalDateTime;
 
 public class AirDataBuilder{
+    private long id;
     private double temperature;
     private double humidity;
     private LocalDateTime localDateTime;
+
+    public AirDataBuilder setId(long id) {
+        this.id = id;
+        return this;
+    }
 
     public AirDataBuilder setTemperature(double temperature) {
         this.temperature = temperature;
@@ -23,6 +29,6 @@ public class AirDataBuilder{
     }
 
     public AirData createAirData() {
-        return new AirData(temperature, humidity, localDateTime);
+        return new AirData(id, temperature, humidity, localDateTime);
     }
 }
