@@ -1,9 +1,8 @@
-package com.smarthome.domain.usecase;
+package com.smarthome.domain.usecase.airdata;
 
 import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.domain.ports.driven.AirDataRepositoryPort;
-import com.smarthome.domain.ports.driving.SaveAirDataUseCase;
-import org.springframework.stereotype.Service;
+import com.smarthome.domain.ports.driving.airdata.SaveAirDataUseCase;
 
 import java.util.Objects;
 

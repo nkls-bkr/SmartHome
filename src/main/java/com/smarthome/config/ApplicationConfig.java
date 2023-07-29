@@ -2,10 +2,10 @@ package com.smarthome.config;
 
 import com.smarthome.domain.ports.driven.AirDataRepositoryPort;
 import com.smarthome.domain.ports.driven.LocationRepositoryPort;
-import com.smarthome.domain.ports.driving.FindAirDataByIdUseCase;
-import com.smarthome.domain.ports.driving.SaveAirDataUseCase;
-import com.smarthome.domain.usecase.FindAirDataByIdUseCaseDefault;
-import com.smarthome.domain.usecase.SaveAirDataUseCaseDefault;
+import com.smarthome.domain.ports.driving.airdata.FindAirDataByIdUseCase;
+import com.smarthome.domain.ports.driving.airdata.SaveAirDataUseCase;
+import com.smarthome.domain.usecase.airdata.FindAirDataByIdUseCaseDefault;
+import com.smarthome.domain.usecase.airdata.SaveAirDataUseCaseDefault;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

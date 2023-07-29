@@ -2,8 +2,8 @@ package com.smarthome.infrastructure.database.mapper.airdata;
 
 import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.domain.model.airdata.AirDataBuilder;
-import com.smarthome.infrastructure.database.entities.AirDataJpaEntity;
-import com.smarthome.infrastructure.database.entities.AirDataJpaEntityBuilder;
+import com.smarthome.infrastructure.database.entities.airdata.AirDataJpaEntity;
+import com.smarthome.infrastructure.database.entities.airdata.AirDataJpaEntityBuilder;
 import org.springframework.stereotype.Component;
 
 @Component

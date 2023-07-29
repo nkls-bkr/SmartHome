@@ -1,10 +1,10 @@
 package com.smarthome.application.rest.controller;
 
 import com.smarthome.domain.model.airdata.AirData;
-import com.smarthome.application.rest.dto.AirDataDto;
-import com.smarthome.application.rest.mapper.AirDataDtoMapper;
-import com.smarthome.domain.ports.driving.FindAirDataByIdUseCase;
-import com.smarthome.domain.ports.driving.SaveAirDataUseCase;
+import com.smarthome.application.rest.dto.airdata.AirDataDto;
+import com.smarthome.application.rest.mapper.airdata.AirDataDtoMapper;
+import com.smarthome.domain.ports.driving.airdata.FindAirDataByIdUseCase;
+import com.smarthome.domain.ports.driving.airdata.SaveAirDataUseCase;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

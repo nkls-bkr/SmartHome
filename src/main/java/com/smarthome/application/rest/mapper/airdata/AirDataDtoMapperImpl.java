@@ -1,7 +1,7 @@
-package com.smarthome.application.rest.mapper;
+package com.smarthome.application.rest.mapper.airdata;
 
-import com.smarthome.application.rest.dto.AirDataDto;
-import com.smarthome.application.rest.dto.AirDataDtoBuilder;
+import com.smarthome.application.rest.dto.airdata.AirDataDto;
+import com.smarthome.application.rest.dto.airdata.AirDataDtoBuilder;
 import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.domain.model.airdata.AirDataBuilder;
 import org.springframework.stereotype.Component;

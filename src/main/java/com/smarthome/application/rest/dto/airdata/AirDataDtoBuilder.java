@@ -1,4 +1,4 @@
-package com.smarthome.application.rest.dto;
+package com.smarthome.application.rest.dto.airdata;
 
 import java.time.LocalDateTime;
 

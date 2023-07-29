@@ -10,5 +10,5 @@ public interface LocationRepositoryPort {
 
     Location save(Location location);
 
-    Optional<Location> findById(int id);
+    Optional<Location> findById(Long id);
 }

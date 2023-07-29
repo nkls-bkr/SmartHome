@@ -65,7 +65,7 @@ public class LocationJpaRepositoryAdapter implements LocationRepositoryPort {
    *     found
    */
   @Override
-  public Optional<Location> findById(int id) {
+  public Optional<Location> findById(Long id) {
     Optional<LocationJpaEntity> airDataEntityToSearchFor = locationJpaRepository.findById(id);
 
     return airDataEntityToSearchFor.map(locationJpaEntityMapper::toDomainModel);

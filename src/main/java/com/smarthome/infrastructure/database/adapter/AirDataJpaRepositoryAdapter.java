@@ -1,7 +1,7 @@
 package com.smarthome.infrastructure.database.adapter;
 
 import com.smarthome.infrastructure.database.mapper.airdata.AirDataJpaEntityMapper;
-import com.smarthome.infrastructure.database.entities.AirDataJpaEntity;
+import com.smarthome.infrastructure.database.entities.airdata.AirDataJpaEntity;
 import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.domain.ports.driven.AirDataRepositoryPort;
 import org.springframework.stereotype.Repository;

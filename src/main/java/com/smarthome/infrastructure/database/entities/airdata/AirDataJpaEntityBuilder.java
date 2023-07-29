@@ -1,4 +1,4 @@
-package com.smarthome.infrastructure.database.entities;
+package com.smarthome.infrastructure.database.entities.airdata;
 
 import java.time.LocalDateTime;
 
