@@ -9,6 +9,8 @@ import com.smarthome.domain.usecase.SaveAirDataUseCaseDefault;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Objects;
+
 @Configuration
 public class ApplicationConfig {
 
@@ -17,9 +19,14 @@ public class ApplicationConfig {
   private final LocationRepositoryPort locationRepositoryPort;
 
   public ApplicationConfig(
-      AirDataRepositoryPort airDataRepositoryPort, LocationRepositoryPort locationRepositoryPort) {
-    this.airDataRepositoryPort = airDataRepositoryPort;
-    this.locationRepositoryPort = locationRepositoryPort;
+      final AirDataRepositoryPort airDataRepositoryPort,
+      final LocationRepositoryPort locationRepositoryPort) {
+    this.airDataRepositoryPort =
+        Objects.requireNonNull(
+            airDataRepositoryPort, "The air data repository port must not be null");
+    this.locationRepositoryPort =
+        Objects.requireNonNull(
+            locationRepositoryPort, "The location repository port must not be null");
   }
 
   @Bean
