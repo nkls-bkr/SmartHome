@@ -1,5 +1,6 @@
 package com.smarthome.domain.usecase;
 
+import com.smarthome.domain.exception.ResourceDoesNotExistException;
 import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.domain.ports.driven.AirDataRepositoryPort;
 import com.smarthome.domain.ports.driving.FindAirDataByIdUseCase;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Optional;
+
+import static java.lang.String.*;
 
 @Service
 public class FindAirDataByIdUseCaseDefault implements FindAirDataByIdUseCase {
@@ -18,7 +21,14 @@ public class FindAirDataByIdUseCaseDefault implements FindAirDataByIdUseCase {
     private final AirDataRepositoryPort airDataRepositoryPort;
 
     @Override
-    public Optional<AirData> execute(Long id) {
-        return airDataRepositoryPort.findById(id);
+    public AirData execute(Long id) {
+        Optional<AirData> airDataOptional = airDataRepositoryPort.findById(id);
+
+        if(airDataOptional.isEmpty())
+        {
+            throw new ResourceDoesNotExistException(format("A air data with the id %d does not exist", id));
+        }
+
+        return airDataOptional.get();
     }
 }

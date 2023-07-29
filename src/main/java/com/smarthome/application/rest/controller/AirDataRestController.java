@@ -3,7 +3,6 @@ package com.smarthome.application.rest.controller;
 import com.smarthome.domain.model.airdata.AirData;
 import com.smarthome.application.rest.dto.AirDataDto;
 import com.smarthome.application.rest.mapper.AirDataDtoMapper;
-import com.smarthome.domain.ports.driving.AirDataService;
 import com.smarthome.domain.ports.driving.FindAirDataByIdUseCase;
 import com.smarthome.domain.ports.driving.SaveAirDataUseCase;
 import org.springframework.http.HttpStatus;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/airdata")
@@ -37,7 +35,7 @@ public class AirDataRestController {
   @PostMapping
   @ResponseBody
   public ResponseEntity<?> postAirData(@RequestBody AirDataDto airDataDto) {
-    AirData airDataToSave = airDataDtoMapper.AirDataDtoToAirData(airDataDto);
+    AirData airDataToSave = airDataDtoMapper.toModel(airDataDto);
 
     AirData savedAirData = saveAirDataUseCase.execute(airDataToSave);
 
@@ -46,12 +44,10 @@ public class AirDataRestController {
 
   @GetMapping("/{id}")
   public ResponseEntity<?> getAirDataById(@PathVariable Long id) {
-    Optional<AirData> airDataSearchingFor = findAirDataByIdUseCase.execute(id);
+    AirData airDataToSearchFor = findAirDataByIdUseCase.execute(id);
 
-    if (airDataSearchingFor.isEmpty()) {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-    }
+    AirDataDto airDataDtoToSearchFor = airDataDtoMapper.toDto(airDataToSearchFor);
 
-    return ResponseEntity.status(HttpStatus.OK).body(airDataSearchingFor.get());
+    return ResponseEntity.status(HttpStatus.OK).body(airDataDtoToSearchFor);
   }
 }

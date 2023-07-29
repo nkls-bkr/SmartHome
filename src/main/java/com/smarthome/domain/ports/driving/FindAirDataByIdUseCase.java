@@ -5,5 +5,5 @@ import com.smarthome.domain.model.airdata.AirData;
 import java.util.Optional;
 
 public interface FindAirDataByIdUseCase {
-    Optional<AirData> execute(Long id);
+    AirData execute(Long id);
 }
