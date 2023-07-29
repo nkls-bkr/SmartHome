@@ -1,9 +1,6 @@
 package com.smarthome.infrastructure.database.entities.airdata;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -13,7 +10,7 @@ import java.util.Objects;
 public class AirDataJpaEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private double temperature;
     private double humidity;
