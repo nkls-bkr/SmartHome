@@ -11,7 +11,6 @@ import java.util.Optional;
 
 import static java.lang.String.*;
 
-@Service
 public class FindAirDataByIdUseCaseDefault implements FindAirDataByIdUseCase {
     public FindAirDataByIdUseCaseDefault(AirDataRepositoryPort airDataRepositoryPort) {
         this.airDataRepositoryPort = Objects.requireNonNull(airDataRepositoryPort,
